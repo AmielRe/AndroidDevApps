@@ -1,3 +1,10 @@
 <resources>
     <string name="app_name">Mission1</string>
+    <string name="title_text">TicTacToe</string>
+    <string name="grid_image_content_description">Begin</string>
+    <string name="default_status_text">Status</string>
+    <string name="status_string">Status</string>
+    <string name="play_again">Play Again</string>
+    <string name="dialog_message">Would you like to play again?</string>
+    <string name="dialog_title">Game over!</string>
 </resources>
