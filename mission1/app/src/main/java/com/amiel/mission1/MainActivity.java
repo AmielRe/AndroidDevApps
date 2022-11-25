@@ -30,9 +30,9 @@ public class MainActivity extends AppCompatActivity {
     int[] state;
 
     // All winning options and appropriate win mark image
-    static final int[][] winPositions = {{1, 2, 3}, {4, 5, 6}, {7, 8, 9},
-            {1, 4, 7}, {2, 5, 8}, {3, 6, 9},
-            {1, 5, 9}, {3, 5, 7}};
+    static final int[][] winPositions = {{0, 1, 2}, {3, 4, 5}, {6, 7, 8},
+            {0, 3, 6}, {1, 4, 7}, {2, 5, 8},
+            {0, 4, 8}, {2, 4, 6}};
     static final int[] winPositionsImage = {R.drawable.mark7, R.drawable.mark7, R.drawable.mark7, R.drawable.mark4, R.drawable.mark4, R.drawable.mark4, R.drawable.mark1, R.drawable.mark2};
 
     // Counter for turns taken
@@ -46,13 +46,13 @@ public class MainActivity extends AppCompatActivity {
         status = findViewById(R.id.status);
 
         // If the tapped image is NULL
-        if (state[tappedImage - 1] == -1) {
+        if (state[tappedImage] == -1) {
 
             // Increase the counter
             counter++;
 
             // Mark this position
-            state[tappedImage - 1] = activePlayer;
+            state[tappedImage] = activePlayer;
 
             // Set transition effect
             img.setTranslationY(-1000f);
@@ -77,19 +77,19 @@ public class MainActivity extends AppCompatActivity {
 
         // Check if any player has won
         for (int[] winPosition : winPositions) {
-            if (state[winPosition[0] - 1] == state[winPosition[1] - 1] &&
-                    state[winPosition[1] - 1] == state[winPosition[2] - 1] &&
-                    state[winPosition[0] - 1] != -1) {
+            if (state[winPosition[0]] == state[winPosition[1]] &&
+                    state[winPosition[1]] == state[winPosition[2]] &&
+                    state[winPosition[0]] != -1) {
                 flag = 1;
 
                 // Set appropriate winning status
-                int winImageRes = state[winPosition[0] - 1] == 0 ? R.drawable.owin : R.drawable.xwin;
+                int winImageRes = state[winPosition[0]] == 0 ? R.drawable.owin : R.drawable.xwin;
                 status.setImageResource(winImageRes);
 
                 // Draw the appropriate winning mark
                 for (int winIndex : winPosition) {
-                    gridBoxes[winIndex - 1].setBackground(gridBoxes[winIndex - 1].getDrawable());
-                    gridBoxes[winIndex - 1].setImageResource(winPositionsImage[asList(winPositions).indexOf(winPosition)]);
+                    gridBoxes[winIndex].setBackground(gridBoxes[winIndex].getDrawable());
+                    gridBoxes[winIndex].setImageResource(winPositionsImage[asList(winPositions).indexOf(winPosition)]);
                 }
 
                 // Display play again dialog
