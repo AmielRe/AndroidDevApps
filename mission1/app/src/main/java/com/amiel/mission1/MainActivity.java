@@ -20,6 +20,10 @@ public class MainActivity extends AppCompatActivity {
     int activePlayer;
     ImageView status;
     ImageView[] gridBoxes;
+    int pl;
+    int pr;
+    int pt;
+    int pb;
 
     /*
     State explanation:
@@ -90,6 +94,7 @@ public class MainActivity extends AppCompatActivity {
                 for (int winIndex : winPosition) {
                     gridBoxes[winIndex].setBackground(gridBoxes[winIndex].getDrawable());
                     gridBoxes[winIndex].setImageResource(winPositionsImage[asList(winPositions).indexOf(winPosition)]);
+                    gridBoxes[winIndex].setPadding(0, 0, 0, 0);
                 }
 
                 // Display play again dialog
@@ -131,6 +136,7 @@ public class MainActivity extends AppCompatActivity {
         for (ImageView gridBox : gridBoxes) {
             gridBox.setImageResource(0);
             gridBox.setBackgroundResource(0);
+            gridBox.setPadding(pl, pt, pr, pb);
         }
 
         status.setImageResource(R.drawable.xplay);
@@ -159,5 +165,11 @@ public class MainActivity extends AppCompatActivity {
                 (findViewById(R.id.box8)),
                 (findViewById(R.id.box9))
         };
+
+        // Save padding values
+        pt = gridBoxes[0].getPaddingTop();
+        pb = gridBoxes[0].getPaddingBottom();
+        pr = gridBoxes[0].getPaddingRight();
+        pl = gridBoxes[0].getPaddingLeft();
     }
 }
