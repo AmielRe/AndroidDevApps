@@ -1,18 +1,188 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".MainActivity">
+    tools:context=".MainActivity"
+    android:background="@color/backgroundColor">
 
+    <!--title text-->
     <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Hello World!"
-        app:layout_constraintBottom_toBottomOf="parent"
+        android:id="@+id/titleText"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="45sp"
+        android:textStyle="bold"
+        android:layout_marginTop="22dp"
+        android:text="@string/title_text"
+        app:fontFamily="cursive"/>
+
+    <!--image of the grid-->
+    <ImageView
+        android:id="@+id/imageView"
+        android:contentDescription="@string/grid_image_content_description"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:alpha=".33"
+        android:layout_marginTop="10dp"
+        app:srcCompat="@drawable/back" />
+
+    <LinearLayout
+        android:id="@+id/linearLayout"
+        android:layout_width="0dp"
+        android:layout_height="420dp"
+        android:orientation="vertical"
+        app:layout_constraintBottom_toBottomOf="@+id/imageView"
+        app:layout_constraintEnd_toEndOf="@+id/imageView"
+        app:layout_constraintStart_toStartOf="@+id/imageView"
+        app:layout_constraintTop_toTopOf="@+id/imageView">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:orientation="horizontal">
+
+            <!--row of images inside the grid boxes-->
+            <ImageView
+                android:id="@+id/box1"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:onClick="playerTap"
+                android:tag="0"
+                android:scaleType="fitXY"
+                android:padding="20sp"
+                android:adjustViewBounds="true"/>
+
+            <ImageView
+                android:id="@+id/box2"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:onClick="playerTap"
+                android:tag="1"
+                android:scaleType="fitXY"
+                android:padding="20sp"
+                android:adjustViewBounds="true"/>
+
+            <ImageView
+                android:id="@+id/box3"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:onClick="playerTap"
+                android:scaleType="fitXY"
+                android:adjustViewBounds="true"
+                android:padding="20sp"
+                android:tag="2" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:orientation="horizontal">
+
+            <!--row of images inside the grid boxes-->
+            <ImageView
+                android:id="@+id/box4"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:onClick="playerTap"
+                android:scaleType="fitXY"
+                android:adjustViewBounds="true"
+                android:padding="20sp"
+                android:tag="3" />
+
+            <ImageView
+                android:id="@+id/box5"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:onClick="playerTap"
+                android:scaleType="fitXY"
+                android:adjustViewBounds="true"
+                android:padding="20sp"
+                android:tag="4" />
+
+            <ImageView
+                android:id="@+id/box6"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:onClick="playerTap"
+                android:scaleType="fitXY"
+                android:adjustViewBounds="true"
+                android:padding="20sp"
+                android:tag="5" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:orientation="horizontal">
+
+            <!--row of images inside the grid boxes-->
+            <ImageView
+                android:id="@+id/box7"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:onClick="playerTap"
+                android:scaleType="fitXY"
+                android:adjustViewBounds="true"
+                android:padding="20sp"
+                android:tag="6" />
+
+            <ImageView
+                android:id="@+id/box8"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:onClick="playerTap"
+                android:scaleType="fitXY"
+                android:adjustViewBounds="true"
+                android:padding="20sp"
+                android:tag="7" />
+
+            <ImageView
+                android:id="@+id/box9"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:onClick="playerTap"
+                android:scaleType="fitXY"
+                android:adjustViewBounds="true"
+                android:padding="20sp"
+                android:tag="8" />
+        </LinearLayout>
+
+    </LinearLayout>
+
+    <!--game status image-->
+    <ImageView
+        android:id="@+id/status"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:contentDescription="@string/status_string"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.454"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.957"
+        app:srcCompat="@drawable/xplay" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
