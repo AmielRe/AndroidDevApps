@@ -5,8 +5,14 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.DialogInterface;
 import android.os.Bundle;
+import android.text.TextUtils;
 import android.view.View;
 import android.widget.ImageView;
+
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
+import java.util.Locale;
 
 import static java.util.Arrays.*;
 
@@ -37,7 +43,8 @@ public class MainActivity extends AppCompatActivity {
     static final int[][] winPositions = {{0, 1, 2}, {3, 4, 5}, {6, 7, 8},
             {0, 3, 6}, {1, 4, 7}, {2, 5, 8},
             {0, 4, 8}, {2, 4, 6}};
-    static final int[] winPositionsImage = {R.drawable.mark7, R.drawable.mark7, R.drawable.mark7, R.drawable.mark4, R.drawable.mark4, R.drawable.mark4, R.drawable.mark1, R.drawable.mark2};
+
+    List<Integer> winPositionsImage;
 
     // Counter for turns taken
     public static int counter = 0;
@@ -93,7 +100,7 @@ public class MainActivity extends AppCompatActivity {
                 // Draw the appropriate winning mark
                 for (int winIndex : winPosition) {
                     gridBoxes[winIndex].setBackground(gridBoxes[winIndex].getDrawable());
-                    gridBoxes[winIndex].setImageResource(winPositionsImage[asList(winPositions).indexOf(winPosition)]);
+                    gridBoxes[winIndex].setImageResource(winPositionsImage.get(asList(winPositions).indexOf(winPosition)));
                     gridBoxes[winIndex].setPadding(0, 0, 0, 0);
                 }
 
@@ -171,5 +178,23 @@ public class MainActivity extends AppCompatActivity {
         pb = gridBoxes[0].getPaddingBottom();
         pr = gridBoxes[0].getPaddingRight();
         pl = gridBoxes[0].getPaddingLeft();
+
+        // Init win images
+        winPositionsImage = new ArrayList<>(Arrays.asList(R.drawable.mark7,
+                R.drawable.mark7,
+                R.drawable.mark7,
+                R.drawable.mark4,
+                R.drawable.mark4,
+                R.drawable.mark4));
+
+        // Handle R2L and L2R phones - change win image accordingly
+        if (TextUtils.getLayoutDirectionFromLocale(Locale.getDefault())==View.LAYOUT_DIRECTION_LTR) {
+            winPositionsImage.add(R.drawable.mark1);
+            winPositionsImage.add(R.drawable.mark2);
+        }
+        else {
+            winPositionsImage.add(R.drawable.mark2);
+            winPositionsImage.add(R.drawable.mark1);
+        }
     }
 }
