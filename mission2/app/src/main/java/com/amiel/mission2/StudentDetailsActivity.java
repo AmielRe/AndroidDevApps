@@ -22,6 +22,7 @@ public class StudentDetailsActivity extends AppCompatActivity {
     TextView idTv;
     TextView phoneTv;
     TextView addressTv;
+
     @Override
     public void onRestart() {
         super.onRestart();
@@ -38,7 +39,6 @@ public class StudentDetailsActivity extends AppCompatActivity {
         numberData = intent.getIntExtra("name", 0);
         student=Model.instance().data.get(numberData);
 
-
         nameTv = findViewById(R.id.studentdetails_name);
         idTv = findViewById(R.id.studentdetails_id);
         phoneTv = findViewById(R.id.studentdetails_phone);
@@ -47,7 +47,6 @@ public class StudentDetailsActivity extends AppCompatActivity {
         Button editBtn = findViewById(R.id.studentdetails_editbtn);
 
         updateData();
-
 
         editBtn.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -59,13 +58,11 @@ public class StudentDetailsActivity extends AppCompatActivity {
             }
         });
 
-
         //need to fix for each specific image in next missions
         ImageView imageView = findViewById(R.id.studentdetails_img);
         imageView.setImageResource(R.drawable.avatar);
 
     }
-
 
     public void updateData () {
         nameTv.setText("name : "+student.name);

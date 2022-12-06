@@ -17,15 +17,11 @@ public class NewStudentActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_new_student);
 
-
-
         TextView nameTv = findViewById(R.id.newstudent_name);
         TextView idTv = findViewById(R.id.newstudent_id);
         TextView phoneTv = findViewById(R.id.newstudent_phone);
         TextView addressTv = findViewById(R.id.newstudent_address);
         CheckBox checkBox = findViewById(R.id.newstudent_checkbox);
-
-
 
         Button saveBtn = findViewById(R.id.newstudent_saveBtn);
         Button cancelBtn = findViewById(R.id.newstudent_cancelBtn);
@@ -45,6 +41,4 @@ public class NewStudentActivity extends AppCompatActivity {
         ImageView imageView = findViewById(R.id.newstudent_image);
         imageView.setImageResource(R.drawable.avatar);
     }
-
-
 }

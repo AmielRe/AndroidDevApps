@@ -22,7 +22,6 @@ public class StudentEditActivity extends AppCompatActivity {
     Student student;
     int numberData;
 
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -35,7 +34,7 @@ public class StudentEditActivity extends AppCompatActivity {
         TextView nameTv = findViewById(R.id.studentedit_name);
         TextView idTv = findViewById(R.id.studentedit_id);
         TextView phoneTv = findViewById(R.id.studentedit_phone);
-        TextView addresTv = findViewById(R.id.studentedit_address);
+        TextView addressTv = findViewById(R.id.studentedit_address);
         CheckBox cb = findViewById(R.id.studentedit_checkbox);
         Button saveBtn = findViewById(R.id.studentedit_savebtn);
         Button deleteBtn = findViewById(R.id.studentedit_deletebtn);
@@ -44,26 +43,20 @@ public class StudentEditActivity extends AppCompatActivity {
         nameTv.setText(student.name);
         idTv.setText(student.id);
         phoneTv.setText(student.phone);
-        addresTv.setText(student.address);
+        addressTv.setText(student.address);
         cb.setChecked(student.cb);
-
 
         //need to fix in the next missions
         ImageView imageView = findViewById(R.id.studentedit_image);
         imageView.setImageResource(R.drawable.avatar);
 
-
-
         saveBtn.setOnClickListener(view -> {
             student.name=nameTv.getText().toString();
             student.id=idTv.getText().toString();
             student.phone=phoneTv.getText().toString();
-            student.address=addresTv.getText().toString();
+            student.address=addressTv.getText().toString();
             student.cb=cb.isChecked();
             Model.instance().data.set(numberData,student);
-            //finish();
-            /*Intent backMain = new Intent(getApplicationContext(),StudentRecyclerList.class);
-            startActivity(backMain);*/
             finish();
         });
 

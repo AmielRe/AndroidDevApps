@@ -94,6 +94,7 @@ public class StudentRecyclerList extends AppCompatActivity {
     public interface OnItemClickListener{
         void onItemClick(int pos);
     }
+
     class StudentRecyclerAdapter extends RecyclerView.Adapter<StudentViewHolder>{
         OnItemClickListener listener;
         void setOnItemClickListener(OnItemClickListener listener){
