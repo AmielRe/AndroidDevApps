@@ -10,8 +10,8 @@
         android:id="@+id/studentdetails_img"
         android:layout_width="171dp"
         android:layout_height="171dp"
-        android:layout_marginStart="20dp"
         android:layout_marginTop="20dp"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         tools:srcCompat="@drawable/avatar" />
@@ -74,7 +74,8 @@
         android:textSize="24sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/studentdetails_address" />
+        app:layout_constraintTop_toBottomOf="@+id/studentdetails_address"
+        android:enabled="false"/>
 
     <Button
         android:id="@+id/studentdetails_editbtn"
