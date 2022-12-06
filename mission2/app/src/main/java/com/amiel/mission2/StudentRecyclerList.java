@@ -15,6 +15,8 @@ import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.TextView;
 
+import com.google.android.material.floatingactionbutton.FloatingActionButton;
+
 import java.util.List;
 
 public class StudentRecyclerList extends AppCompatActivity {
@@ -47,8 +49,8 @@ public class StudentRecyclerList extends AppCompatActivity {
             }
         });
 
-        Button addstudBtn = findViewById(R.id.studentlist_addstudBtn);
-        addstudBtn.setOnClickListener(new View.OnClickListener() {
+        FloatingActionButton addStudentFab = findViewById(R.id.studentrecycler_fab);
+        addStudentFab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(getApplicationContext(), NewStudentActivity.class);
