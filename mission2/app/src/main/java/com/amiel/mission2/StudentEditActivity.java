@@ -62,8 +62,8 @@ public class StudentEditActivity extends AppCompatActivity {
             student.cb=cb.isChecked();
             Model.instance().data.set(numberData,student);
             //finish();
-            Intent backMain = new Intent(getApplicationContext(),StudentRecyclerList.class);
-            startActivity(backMain);
+            /*Intent backMain = new Intent(getApplicationContext(),StudentRecyclerList.class);
+            startActivity(backMain);*/
             finish();
         });
 

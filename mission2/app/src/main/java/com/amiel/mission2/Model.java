@@ -12,10 +12,6 @@ public class Model {
     }
 
     private Model(){
-        /*for(int i=0;i<20;i++){
-            addStudent(new Student("name " + i,""+i,"",false));
-        }*/
-
 
         addStudent(new Student("Aharon", "205967841","",false,"0528886341","Afula"));
         addStudent(new Student("Barney", "205967842", "" , false, "0528886342", "Bat Yam"));

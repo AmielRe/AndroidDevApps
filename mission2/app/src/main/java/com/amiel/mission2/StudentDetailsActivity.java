@@ -17,11 +17,15 @@ import org.w3c.dom.Text;
 public class StudentDetailsActivity extends AppCompatActivity {
     Student student;
     int numberData;
-
+    CheckBox cb;
+    TextView nameTv;
+    TextView idTv;
+    TextView phoneTv;
+    TextView addressTv;
     @Override
     public void onRestart() {
         super.onRestart();
-        recreate();
+        updateData();
     }
 
     @Override
@@ -35,30 +39,15 @@ public class StudentDetailsActivity extends AppCompatActivity {
         student=Model.instance().data.get(numberData);
 
 
-        TextView nameTv = findViewById(R.id.studentdetails_name);
-        TextView idTv = findViewById(R.id.studentdetails_id);
-        TextView phoneTv = findViewById(R.id.studentdetails_phone);
-        TextView addressTv = findViewById(R.id.studentdetails_address);
-        CheckBox cb = findViewById(R.id.studentdetails_checkbox);
+        nameTv = findViewById(R.id.studentdetails_name);
+        idTv = findViewById(R.id.studentdetails_id);
+        phoneTv = findViewById(R.id.studentdetails_phone);
+        addressTv = findViewById(R.id.studentdetails_address);
+        cb = findViewById(R.id.studentdetails_checkbox);
         Button editBtn = findViewById(R.id.studentdetails_editbtn);
 
-        nameTv.setText("name : "+student.name);
-        idTv.setText("id : "+student.id);
-        phoneTv.setText("phone : "+student.phone);
-        addressTv.setText("address : "+student.address);
-        if(student.cb)
-            cb.setChecked(true);
-        else
-            cb.setChecked(false);
+        updateData();
 
-
-        /*cb.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-
-                student.cb=!student.cb;
-            }
-        });*/
 
         editBtn.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -74,5 +63,15 @@ public class StudentDetailsActivity extends AppCompatActivity {
         //need to fix for each specific image in next missions
         ImageView imageView = findViewById(R.id.studentdetails_img);
         imageView.setImageResource(R.drawable.avatar);
+
+    }
+
+
+    public void updateData () {
+        nameTv.setText("name : "+student.name);
+        idTv.setText("id : "+student.id);
+        phoneTv.setText("phone : "+student.phone);
+        addressTv.setText("address : "+student.address);
+        cb.setChecked(student.cb);
     }
 }
