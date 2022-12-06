@@ -6,10 +6,12 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.TextView;
 
@@ -17,6 +19,11 @@ import java.util.List;
 
 public class StudentRecyclerList extends AppCompatActivity {
     List<Student> data;
+
+    public void onRestart() {
+        super.onRestart();
+        recreate();
+    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -34,7 +41,18 @@ public class StudentRecyclerList extends AppCompatActivity {
         adapter.setOnItemClickListener(new OnItemClickListener() {
             @Override
             public void onItemClick(int pos) {
-                Log.d("TAG", "Row was clicked " + pos);
+                Intent intent = new Intent(list.findViewHolderForAdapterPosition(pos).itemView.getContext(), StudentDetailsActivity.class);
+                intent.putExtra("name",pos);
+                startActivity(intent);
+            }
+        });
+
+        Button addstudBtn = findViewById(R.id.studentlist_addstudBtn);
+        addstudBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(getApplicationContext(), NewStudentActivity.class);
+                startActivity(intent);
             }
         });
     }
