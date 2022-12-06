@@ -65,10 +65,10 @@ public class StudentDetailsActivity extends AppCompatActivity {
     }
 
     public void updateData () {
-        nameTv.setText("name : "+student.name);
-        idTv.setText("id : "+student.id);
-        phoneTv.setText("phone : "+student.phone);
-        addressTv.setText("address : "+student.address);
+        nameTv.setText("Name : "+student.name);
+        idTv.setText("Id : "+student.id);
+        phoneTv.setText("Phone : "+student.phone);
+        addressTv.setText("Address : "+student.address);
         cb.setChecked(student.cb);
     }
 }

@@ -9,4 +9,12 @@
     <string name="activity_new_student_textview_phone">Phone :</string>
     <string name="activity_new_student_textview_id">Id :</string>
     <string name="activity_new_student_textview_name">Name :</string>
+    <string name="activity_student_edit_textview_address">Address :</string>
+    <string name="activity_student_edit_textview_phone">Phone :</string>
+    <string name="activity_student_edit_textview_id">Id :</string>
+    <string name="activity_student_edit_textview_name">Name :</string>
+    <string name="activity_student_edit_checkbox_checked">Checked</string>
+    <string name="activity_student_edit_button_cancel">CANCEL</string>
+    <string name="activity_student_edit_button_save">SAVE</string>
+    <string name="activity_student_edit_button_delete">DELETE</string>
 </resources>
